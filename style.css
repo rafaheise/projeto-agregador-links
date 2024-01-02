@@ -1,0 +1,168 @@
+* {
+  /* O asterísco significa que as configs dentro dele afetarão todas as demais tags do arquivo.*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*define o tamanho do elemento a partir da caixa*/
+}
+
+:root {
+  /*pseudo-selector para html*/
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --text-color: white;
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  /*além do RGB padrão, RGBA permite também definir a transparência*/
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.06);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-br-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --text-color: black;
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-br-url: url(./assets/sun.svg);
+}
+
+body {
+  background: var(--bg-url) no-repeat top center/cover;
+  /*background: color image repeat position/size*/
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /*height: 712px; altura não é necessário já que ela se adapta conforme vou colocando dados*/
+  /*border: 1px solid red; é uma boa prática ter a borda da caixa visível até finalizar a config dela*/
+  /*
+  margin: auto;         essa função com AUTO, posiciona a caixa no centro, mas somente em relação a largura. Altura não faz.
+  margin-top: auto;     essa função posiciona em relação a altura.
+  margin-right: auto;   em relação a direita
+  margin-left: auto;    em relação a esquerda
+  margin-bottom: auto;  em relação a parte inferior
+  padding-top: 56px;    preenche a parte superior de maneira semelhante a margin
+  */
+  margin: 56px auto 0px; /*dessa forma, eu tenho 56px na parte superior, automático nas laterais e 0px na parte inferior*/
+  padding: 0 24px; /*preenchimento de 0px nas partes sup e inf, e 24px nas laterais*/
+}
+
+#profile {
+  /*tag PAI, tudo que estiver aqui, genereliza para as tags filhas*/
+  text-align: center; /*função para centralizar lateralmente a imagem (que é elemento inline)*/
+  padding: 24px;
+}
+
+#profile img {
+  /*div (profile) é um elemento BLOCK, já IMG é elemento INLINE. Isso significa que para eu utiliza a tag margin:auto, precisaria classificar como BLOCK, usando display:block*/
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500; /*o peso da fonte é o quanto ela ficará negrito. Por default, todo peso acima de 400 é considerado BOLD*/
+  font-size: 16px; /*por padrão, todo site usa fonte de tamanho 16 pixels, não seria necessária essa linha*/
+  line-height: 24px; /*define o tamanho da linha*/
+  margin-top: 8px;
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-br-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  z-index: 0;
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block; /*pelo fato da tag SPAN ser INLINE, ela não aceita configs como alterar a largura, por isso, mudar para BLOCK */
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 999px;
+}
+
+/* links - Lista */
+ul {
+  list-style: none; /* define que a lista não terá estilo algum (sem ponto, sem travessão, sem número) */
+  display: flex; /* define que a organização da lista se adaptará conforme o seu conteúdo */
+  flex-direction: column; /* define o display em colunas, os links ficam um em cima do outro */
+  /* flex-direction: row; define o display como linha, os links ficam um ao lado do outro */
+  gap: 16px; /* insere espaçamento definido entre as linhas */
+  padding: 24px 0; /*preenchimento de 24px nas partes sup e inf, e 0px nas laterais*/
+}
+
+ul li a {
+  display: flex; /*flex faz uso de uma linha imaginária que corta a caixa ao meio em relação a altura, chamada MAIN*/
+  align-items: center; /*essa linha MAIN possibilita alinhar o conteúdo de várias formas, centralizados sendo uma delas*/
+  justify-content: center; /*centraliza o conteúdo da caixa em relção a largura*/
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px; /*define o quanto a borda será arredondada, podendo até transformar um retângulo em uma elipse*/
+  -webkit-backdrop-filter: blur(4px);
+  /*Esse webkit é um vendorPrefix usado para compatibilizar com vários navegadores, nesse caso Safari*/
+
+  text-decoration: none; /*essa função permite estilizar o texto (colocar underline, overline e line-through)*/
+  font-weight: 500;
+
+  transition: background 0.2s; /*define uma transição, nesse caso de background, de 0.2 segundos*/
+}
+
+ul li a:hover {
+  /*:hover é um pseudo-selector. Responsável por alterar as configs quando passar o mouse em cima*/
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}

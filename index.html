@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- define um documento tipo HTML5 -->
+<html lang="pt-br">
+  <!-- elemento raiz HTML -->
+  <head>
+    <!-- filho 1: configs da página/responsável por alterar o documento -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <!-- charset define o conjunto de caracteres que será utilizado. UTF-8 permite uso de caracteres especiais -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- serve para compatibilizar com browser mais antigos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- viewport é a página aberta. Width=device-width configura para a página se adaptar ao aparelho que está acessando. Initial-scale=1.0 configura para a página abrir sem zoom.  -->
+    <title>Project</title>
+    <!-- nome da página que aparece na aba do browser -->
+    <link rel="stylesheet" href="./style.css" />
+    <!-- rel="stylesheet" diz qual tipo de arquivo será colocado em href, ou seja, "style.css" é um arquivo do tipo stylesheet -->
+    <!-- E o ./ quer dizer que o arquivo style.css está na pasta do projeto mesmo -->
+  </head>
+  <body>
+    <!-- filho 2: parte visível ao usuário -->
+    <div id="container">
+      <div id="profile">
+        <img src="assets/avatar.png" alt="Foto perfil com fundo amarelo" />
+        <!-- src é onde está localizada a imagem. alt é o que deve aparecer, caso a imagem não seja localizada -->
+        <p>@redesocial</p>
+      </div>
+      <div id="switch" onclick="toggleMode()">
+        <button></button>
+        <span></span>
+      </div>
+      <ul>
+        <!-- Unsortened List: função que gera uma lista sem ordem numérica definida. Para uma lista ordenada numericamente, usa-se Ordered List (ol)-->
+        <li>
+          <!-- li é a tag de uma lista-->
+          <a href="#">Primeiro Link</a>
+          <!-- a é um item da lista. Quando href="#" significa que o link não leva a lugar algum-->
+        </li>
+        <li>
+          <a href="#">Segundo Link</a>
+        </li>
+        <li>
+          <a href="#">Terceiro Link</a>
+        </li>
+        <li>
+          <a href="#" target="_blank">Quarto Link</a>
+          <!-- Target="_blank" é a tag usada para abrir o link em nova aba-->
+        </li>
+      </ul>
+      <div id="social-links">
+        <a href="https://github.com" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+        <a href="https://instagram.com" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="https://youtube.com" target="_blank">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <a href="https://linkedin.com" target="_blank">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+      </div>
+      <footer>
+        <!-- tag usada para config rodapés -->
+        Feito com ♥ pela <a href="https://rocketseat.com.br">Rocketseat</a>
+      </footer>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
