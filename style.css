@@ -38,7 +38,8 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   /*height: 712px; altura não é necessário já que ela se adapta conforme vou colocando dados*/
   /*border: 1px solid red; é uma boa prática ter a borda da caixa visível até finalizar a config dela*/
   /*
